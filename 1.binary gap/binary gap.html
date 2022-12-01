@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>binary gap</title>
+</head>
+
+<body>
+    <script>
+        let t = 25
+        const binary = []
+        const countGap = []
+
+
+
+        for (; t >= 1;) {
+            if (t > 1) {
+                const i = parseInt(t / 2)
+                const j = t % 2
+                binary.unshift(j)
+                t = i
+
+            } else {
+                binary.unshift(t)
+                break
+            }
+        }
+
+
+
+        const binaryCode = binary.join('')
+
+        let n = 0
+        for (i = 1; i < binary.length; i++) {
+            if (binary[i] == 0) {
+                n++
+            } else {
+                countGap.push(n)
+                n = 0
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
