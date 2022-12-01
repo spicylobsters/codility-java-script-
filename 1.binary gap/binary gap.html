@@ -1,54 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>binary gap</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        let t = 25
-        const binary = []
-        const countGap = []
+      let test = 32;
 
+      function binary(t) {
+        const binary = [];
+        const countGap = [];
 
+        //generate binary code
 
-        for (; t >= 1;) {
-            if (t > 1) {
-                const i = parseInt(t / 2)
-                const j = t % 2
-                binary.unshift(j)
-                t = i
-
-            } else {
-                binary.unshift(t)
-                break
-            }
+        for (; t >= 1; ) {
+          if (t > 1) {
+            const i = parseInt(t / 2);
+            const j = t % 2;
+            binary.unshift(j);
+            t = i;
+          } else {
+            binary.unshift(t);
+            break;
+          }
         }
 
+        const binaryCode = binary.join("");
 
+        //generate an array with all gap number
 
-        const binaryCode = binary.join('')
-
-        let n = 0
-        for (i = 1; i < binary.length; i++) {
-            if (binary[i] == 0) {
-                n++
-            } else {
-                countGap.push(n)
-                n = 0
-            }
+        let n = 0;
+        for (i = 1; i <= binary.length - 1; i++) {
+          if (binary[i] === 0) {
+            n++;
+          } else {
+            countGap.push(n);
+            n = 0;
+          }
         }
 
+        let max = 0;
+        if (countGap.length !== 0) {
+          max = Math.max(...countGap);
+        } else {
+          max = 0;
+        }
 
+        return max;
+      }
 
+      binary(test);
+      console.log(binary(test));
 
-
-
+      //   console.log(binaryCode);
+      //   console.log(countGap);
+      //   console.log(max);
     </script>
-</body>
-
+  </body>
 </html>
