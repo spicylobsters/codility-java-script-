@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let A = [3, 8, 9, 7, 6];
+      let K = 2;
+      function cyclicRotation(A, K) {
+        const m = K % A.length;
+        const l = A.length - 1;
+        const B = [];
+
+        A.map((item, index) => {
+          if (index + m <= l) {
+            B[index + m] = item;
+          } else {
+            B[index + m - l - 1] = item;
+          }
+        });
+        return B;
+      }
+      console.log(cyclicRotation(A, K));
+    </script>
+  </body>
+</html>
