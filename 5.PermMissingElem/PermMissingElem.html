@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    //get sum (1~N+1) - sum (array)
+    <script>
+      let A = [2, 3, 1, 5];
+      function solution(A) {
+        let i = A.length + 1;
+        let value = 1;
+        if (i === 1) return value;
+        let sum1 = 0;
+        let sum2 = 0;
+        for (let j = 1; j <= i; j++) {
+          sum1 = sum1 + j;
+        }
+        for (item of A) {
+          sum2 = sum2 + item;
+        }
+        console.log(sum1);
+        console.log(sum2);
+        return (value = sum1 - sum2);
+      }
+      console.log(solution(A));
+    </script>
+  </body>
+</html>
