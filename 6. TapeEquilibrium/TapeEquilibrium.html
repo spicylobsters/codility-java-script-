@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let A = [-10, 10];
+      function solution(A) {
+        let sumA = A.reduce((a, b) => a + b, 0);
+        let sumB = 0;
+        let diff = [];
+        for (let i = 0; i < A.length - 1; i++) {
+          sumB += A[i];
+          sumA -= A[i];
+          diff[i] = Math.abs(sumA - sumB);
+        }
+        // console.log(diff);
+        D = diff.sort((a, b) => a - b, 0);
+        return D[0];
+      }
+
+      console.log(solution(A));
+    </script>
+  </body>
+</html>
