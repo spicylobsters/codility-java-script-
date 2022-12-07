@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const A = [3, 4, 4, 6, 1, 4, 4]
+      const N = 5
+      function solution(N, A) {
+        let B = new Array(N).fill(0)
+        let max = 0
+        const aL = A.length
+
+        for (let i = 0; i < aL; i++) {
+          let item = A[i]
+          let counter = item - 1
+          if (item <= N) {
+            B[counter]++
+            if (B[counter] > max) {
+              max = B[counter]
+            }
+          } else {
+            B.fill(max)
+          }
+        }
+        return B
+        // A.map((item) => {
+        // if (item <= N) {
+        //   B[item - 1]++
+        //   if (B[item - 1] > max) {
+        //     max = B[item - 1]
+        //   }
+        // } else {
+        //   B.fill(max)
+        // }
+        // })
+
+        // console.log(B)
+      }
+
+      console.log(solution(N, A))
+    </script>
+  </body>
+</html>
