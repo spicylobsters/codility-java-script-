@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const A = 6
+      const B = 11
+      const K = 2
+      function solution(A, B, K) {
+        let value = 0
+
+        if (K <= B) {
+          let a = Math.floor(A / K)
+          let b = Math.floor(B / K)
+          if (A % K === 0) {
+            value = b - a + 1
+          } else {
+            value = b - a
+          }
+        } else if (B === 0) {
+          value = 1
+        }
+        return value
+      }
+      console.log(solution(A, B, K))
+    </script>
+  </body>
+</html>
