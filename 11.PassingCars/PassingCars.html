@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      A = [1, 1]
+      function solution(A) {
+        let value = 0
+        let S = A.reduce((a, b) => a + b, 0)
+        let M = A.length
+        let N = M - S
+        if (N === 0 || A.indexOf(0) < 0) {
+          value = 0
+        } else {
+          let index = 0
+          for (let i = 1; i <= N; i++) {
+            const l = A.indexOf(0, index)
+            let current = M - l - 1 - N + i
+            value = value + current
+            if (value > 10000000000) {
+              return (value = -1)
+            }
+            index = l + 1
+          }
+        }
+
+        return value
+      }
+
+      console.log(solution(A))
+    </script>
+  </body>
+</html>
